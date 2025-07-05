@@ -38,9 +38,9 @@
         </form>
 
         <div class="mb-4">
-            <a href="{{ route('student.create') }}"
-                class="bg-[#22c55e] text-white px-4 py-2 rounded-md hover:bg-green-600 transition">Ajouter un
-                étudiant</a>
+            <a href="{{ route('specialite.create') }}"
+                class="bg-[#22c55e] text-white px-4 py-2 rounded-md hover:bg-green-600 transition">Ajouter une
+                specialite</a>
         </div>
 
         @if (session('success'))
@@ -49,7 +49,7 @@
         </div>
         @endif
 
-        <table class="min-w-full bg-white dark:bg-gray-800 rounded-lg shadow-md">
+        {{-- <table class="min-w-full bg-white dark:bg-gray-800 rounded-lg shadow-md">
             <thead>
                 <tr>
                     <th
@@ -88,6 +88,38 @@
                 @endforeach
             </tbody>
         </table>
+        <div class="mt-4">
+            {{ $specialites->links() }}
+        </div> --}}
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            @foreach ($specialites as $specialite)
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-lg font-bold mb-2 text-blue-600">{{ $specialite->name }}</h3>
+                    <p class="text-gray-700 dark:text-gray-300 mb-4">
+                        @if(strlen($specialite->description) > 40)
+                        {{ Str::limit($specialite->description, 40) }}
+                        <a href="{{ route('specialite.show', $specialite->id) }}"
+                            class="text-blue-500 hover:underline">voir plus...</a>
+                        @else
+                        {{ $specialite->description }}
+                        @endif
+                    </p>
+                </div>
+                <div class="flex space-x-2 mt-2">
+                    <a href="{{ route('specialite.edit', $specialite->id) }}"
+                        class="text-blue-600 hover:text-blue-900">Modifier</a>
+                    <form method="post" action="{{ route('specialite.delete', $specialite->id) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button class="bg-red-500 text-white px-4 py-2 rounded-md shadow hover:bg-red-600 transition"
+                            onclick="return confirm('Are you sure to delete this speciality?')">Supprimer</button>
+                    </form>
+                </div>
+            </div>
+            @endforeach
+        </div>
         <div class="mt-4">
             {{ $specialites->links() }}
         </div>

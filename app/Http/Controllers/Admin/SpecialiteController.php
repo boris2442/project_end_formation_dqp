@@ -46,4 +46,9 @@ class SpecialiteController extends Controller
         $specialite->delete();
         return redirect()->route('specialite.index')->with('success', 'Spécialité supprimée avec succès.');
     }
+    public function show($id)
+{
+    $specialite = Specialite::findOrFail($id);
+    return view('pages.show-specialite', compact('specialite'));
+}
 }

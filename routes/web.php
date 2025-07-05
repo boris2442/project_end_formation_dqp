@@ -43,6 +43,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/admin/edit-specialite/{id}', [SpecialiteController::class, 'edit'])->name('specialite.edit');
     Route::put('/admin/update-specialite/{id}', [SpecialiteController::class, 'update'])->name('specialite.update');
 
+    Route::get('/admin/specialites/{id}', [SpecialiteController::class, 'show'])->name('specialite.show');
     Route::get('/admin/dashboard2', [StudentController::class, 'index2']);
 });
 require __DIR__ . '/auth.php';
