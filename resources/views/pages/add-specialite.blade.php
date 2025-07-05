@@ -1,5 +1,5 @@
 @extends('layouts.admin.layout-admin')
-@section('title', 'Ajouter un Étudiant')
+@section('title', 'Ajouter un specialite')
 @section('content')
 
 <section
@@ -9,12 +9,12 @@
 
         <form action="#" method="POST" class="space-y-6">
             <!-- ID de la spécialité -->
-            <div>
+            {{-- <div>
                 <label for="id_specialite" class="block text-sm font-medium mb-1">ID de la spécialité</label>
                 <input type="number" id="id_specialite" name="id_specialite" placeholder="Entrez l'ID de la spécialité"
                     required
                     class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white" />
-            </div>
+            </div> --}}
 
             <!-- Nom de la spécialité -->
             <div>
@@ -32,27 +32,16 @@
             </div>
 
             <!-- Matricule de la spécialité -->
-            <div>
+            {{-- <div>
                 <label for="matricule_specialite" class="block text-sm font-medium mb-1">Matricule de la
                     spécialité</label>
                 <input type="text" id="matricule_specialite" name="matricule_specialite" placeholder="Ex : INF-01"
                     required
                     class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white" />
-            </div>
+            </div> --}}
 
-            <!-- Date de création (automatique) -->
-            <div>
-                <label for="created_at" class="block text-sm font-medium mb-1">Date de création</label>
-                <input type="datetime-local" id="created_at" name="created_at" readonly
-                    class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white" />
-            </div>
 
-            <!-- Date de mise à jour (automatique) -->
-            <div>
-                <label for="updated_at" class="block text-sm font-medium mb-1">Date de mise à jour</label>
-                <input type="datetime-local" id="updated_at" name="updated_at" readonly
-                    class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white" />
-            </div>
+
 
             <!-- Bouton soumettre -->
             <div class="pt-4">

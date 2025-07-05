@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('lieu'); // Lieu de naissance
             $table->string('email')->unique(); // Email
             $table->enum('sexe', ['Masculin', 'Feminin']); //
-           // $table->string('filiere')->nullable(); // Filière
-           // $table->string('niveau')->nullable(); // Niveau
-           // $table->string('frais')->nullable(); // Frais
-           // $table->string('specialite')->nullable(); // Spécialité
+            // $table->string('filiere')->nullable(); // Filière
+            // $table->string('niveau')->nullable(); // Niveau
+            // $table->string('frais')->nullable(); // Frais
+            // $table->string('specialite')->nullable(); // Spécialité
             $table->string('photo')->nullable(); // Photo
             $table->date('date_naissance')->nullable(); // Date de naissance
             $table->string('telephone')->nullable(); // Téléphone

@@ -24,7 +24,9 @@ Route::middleware('auth')->group(function () {
 
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/admin/student/add', [StudentController::class, 'index'])->name('student.create');
+    Route::get('/admin/students', [StudentController::class, 'index'])->name('student.index');
+    Route::get('/admin/student/create', [StudentController::class, 'create'])->name('student.create');
+    Route::post('/admin/student/store', [StudentController::class, 'store'])->name('student.store');
     // Add other admin routes here
     Route::get('/admin/add-filiere', [FiliereController::class, 'index'])->name('student.create');
     Route::get('/admin/add-niveau', [NiveauController::class, 'index'])->name('niveau.create');
