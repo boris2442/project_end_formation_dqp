@@ -31,10 +31,18 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::put('/admin/student/update/{id}', [StudentController::class, 'update'])->name('student.update');
     Route::delete('/admin/student/delete/{id}', [StudentController::class, 'delete'])->name('student.delete');
     // Add other admin routes here
-    Route::get('/admin/add-filiere', [FiliereController::class, 'index'])->name('student.create');
+    // Route::get('/admin/add-filiere', [FiliereController::class, 'index'])->name('student.create');
     Route::get('/admin/add-niveau', [NiveauController::class, 'index'])->name('niveau.create');
     Route::get('/admin/add-frais', [FraisController::class, 'index'])->name('frais.create');
-    Route::get('/admin/add-specialite', [SpecialiteController::class, 'index'])->name('specialite.create');
+
+    //Route destinee au specialite
+    Route::get('/admin/specialite', [SpecialiteController::class, 'index'])->name('specialite.index');
+    Route::get('/admin/add-specialite/', [SpecialiteController::class, 'create'])->name('specialite.create');
+    Route::post('/admin/add-specialite/store', [SpecialiteController::class, 'store'])->name('specialite.store');
+    Route::delete('/admin/delete-specialite/{id}', [SpecialiteController::class, 'delete'])->name('specialite.delete');
+    Route::get('/admin/edit-specialite/{id}', [SpecialiteController::class, 'edit'])->name('specialite.edit');
+    Route::put('/admin/update-specialite/{id}', [SpecialiteController::class, 'update'])->name('specialite.update');
+
     Route::get('/admin/dashboard2', [StudentController::class, 'index2']);
 });
 require __DIR__ . '/auth.php';

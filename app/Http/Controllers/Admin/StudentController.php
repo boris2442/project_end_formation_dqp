@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Student;
 // use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StudentRequest;
 
@@ -11,12 +12,35 @@ class StudentController extends Controller
 {
     //
 
-    public function index()
+    public function index(Request $request)
     {
-        return view('pages.list-students', [
-            'students' => Student::paginate(4),
-        ]);
+        $query = Student::query();
+        $filtre = null; // Variable pour stocker le filtre appliqué
+        if ($request->filled('name')) {
+            $query->where('name', 'like', '%' . $request->input('name') . '%');
+            $filtre = 'nom';
+        }
+
+        if ($request->filled('email')) {
+            $query->where('email', 'like', '%' . $request->input('email') . '%');
+            $filtre = 'email';
+        }
+
+        if ($request->filled('sexe')) {
+            $query->where('sexe', $request->input('sexe'));
+            $filtre = 'sexe';
+        }
+
+        if ($request->filled('annee_naissance')) {
+            $query->whereYear('date_naissance', $request->input('annee_naissance'));
+            $filtre = 'annee_naissance';
+        }
+        $students = $query->paginate(10);
+        $totalEtudiants = Student::count();
+
+        return view('pages.list-students', compact('students', 'totalEtudiants', 'filtre'));
     }
+
     public function create()
     {
         return view('pages.add-student');
@@ -34,7 +58,7 @@ class StudentController extends Controller
             $data['photo'] = null; // or set a default image path
         }
         Student::create($data);
-        return redirect()->route('student.create')->with('success', 'Student added successfully!');
+        return redirect()->route('student.index')->with('success', 'Student added successfully!');
     }
     public function edit($id)
     {

@@ -2,11 +2,13 @@
 @section('title', 'Ajouter un Étudiant')
 @section('content')
 <section
-    class="bg-gray-50 dark:bg-gray-900 text-blue-500 dark:text-gray-200 min-h-screen flex items-center justify-center p-4">
-    <div class="w-full max-w-3xl bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 md:p-8">
+    class="bg-gray-50 dark:bg-gray-900 text-blue-500 dark:text-gray-200 min-h-screen flex items-center justify-center p-4 ">
+    <div class="w-full max-w-3xl relative bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 md:p-8">
         <h2 class="text-2xl font-bold mb-6 text-center">Modifier un apprenant</h2>
+        <div class=""><a href="{{ route('student.index') }}" class='absolute bg-red-400 right-0 top-0 px-4 py-1 rounded text-white hover:text-red-300'>Back</a></div>
 
-        <form action="{{ route('student.update', $student->id) }}" method="POST" enctype="multipart/form-data" class="space-y-6">
+        <form action="{{ route('student.update', $student->id) }}" method="POST" enctype="multipart/form-data"
+            class="space-y-6">
             @csrf
             @method('PUT')
             <!-- Message de succès -->
@@ -41,7 +43,8 @@
 
                 <div>
                     <label for="prenom" class="block text-sm font-medium mb-1">Prénom</label>
-                    <input type="text" id="prenom" name="surname" placeholder="John" required value="{{ old('surname', $student->surname) }}"
+                    <input type="text" id="prenom" name="surname" placeholder="John" required
+                        value="{{ old('surname', $student->surname) }}"
                         class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white" />
                     @error('surname')
                     <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
@@ -49,7 +52,8 @@
                 </div>
                 <div>
                     <label for="email" class="block text-sm font-medium mb-1">email</label>
-                    <input type="text" id="email" name="email" placeholder="etudiant@gmail.com" required value="{{ old('email', $student->email) }}"
+                    <input type="text" id="email" name="email" placeholder="etudiant@gmail.com" required
+                        value="{{ old('email', $student->email) }}"
                         class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white" />
                     @error('email')
                     <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
@@ -65,22 +69,24 @@
                 <div class="flex space-x-6">
                     <label class="inline-flex items-center">
                         <input type="radio" name="sexe" value="Masculin"
-                            class="h-4 w-4 text-blue-600 focus:ring-blue-500" />
+                            class="h-4 w-4 text-blue-600 focus:ring-blue-500" {{ old('sexe', $student->sexe) ==
+                        'Masculin' ? 'checked' : '' }} />
                         <span class="ml-2">Homme</span>
                     </label>
                     <label class="inline-flex items-center">
                         <input type="radio" name="sexe" value="Feminin"
-                            class="h-4 w-4 text-blue-600 focus:ring-blue-500" />
+                            class="h-4 w-4 text-blue-600 focus:ring-blue-500" {{ old('sexe', $student->sexe) ==
+                        'Feminin' ? 'checked' : '' }} />
                         <span class="ml-2">Femme</span>
                     </label>
-
                 </div>
             </div>
 
             <!-- Date de naissance -->
             <div>
                 <label for="date_naissance" class="block text-sm font-medium mb-1">Date de naissance</label>
-                <input type="date" id="date_naissance" name="date_naissance" required value="{{ old('date_naissance', $student->date_naissance) }}"
+                <input type="date" id="date_naissance" name="date_naissance" required
+                    value="{{ old('date_naissance', $student->date_naissance) }}"
                     class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white" />
                 @error('date_naissance')
                 <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
@@ -88,7 +94,8 @@
             </div>
             <div>
                 <label for="lieu" class="block text-sm font-medium mb-1">Lieu de naissance</label>
-                <input type="text" id="lieu" name="lieu_de_naissance" placeholder="Lieu de naissance" required value="{{ old('lieu_de_naissance', $student->lieu_de_naissance) }}"
+                <input type="text" id="lieu" name="lieu_de_naissance" placeholder="Lieu de naissance" required
+                    value="{{ old('lieu_de_naissance', $student->lieu_de_naissance) }}"
                     class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white" />
                 @error('lieu')
                 <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
@@ -96,7 +103,8 @@
             </div>
             <div>
                 <label for="adresse" class="block text-sm font-medium mb-1">Adresse</label>
-                <input type="text" id="adresse" name="adresse" placeholder="Adresse" required value="{{ old('adresse', $student->adresse) }}"
+                <input type="text" id="adresse" name="adresse" placeholder="Adresse" required
+                    value="{{ old('adresse', $student->adresse) }}"
                     class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white" />
                 @error('adresse')
                 <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
@@ -104,7 +112,8 @@
             </div>
             <div>
                 <label for="telephone" class="block text-sm font-medium mb-1">Telephone</label>
-                <input type="text" id="telephone" name="telephone" placeholder="Telephone" required value="{{ old('telephone', $student->telephone) }}"
+                <input type="text" id="telephone" name="telephone" placeholder="Telephone" required
+                    value="{{ old('telephone', $student->telephone) }}"
                     class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white" />
                 @error('telephone')
                 <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
@@ -114,7 +123,7 @@
             <!-- Photo de profil -->
             <div>
                 <label for="photo" class="block text-sm font-medium mb-1">Photo de profil</label>
-                <input type="file" id="photo" name="photo" accept="image/*" required 
+                <input type="file" id="photo" name="photo" accept="image/*" required
                     class="w-full px-4 py-2 border border-gray-300 dark:border-blue-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
                 @error('photo')
                 <div class="text-red-500 text-sm mt-1">{{ $message }}</div>

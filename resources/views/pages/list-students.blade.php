@@ -11,35 +11,62 @@
 
 
     <div class="overflow-x-auto">
-        <form {{-- action="{{ route('education.index') }}" --}} method="get">
-            @csrf
+        <form method="get" class="mb-6 flex justify-between items-center" action="{{ route('student.index') }}">
+          
+            <div class="flex flex-col md:flex-row items-center gap-4 my-4">
 
-            <div class="table-search">
-                <div>
-                    <select class="search-select " name="title" id="">
-                        <option value="">Filtrer les etudiants par: </option>
-                        <option value="">Filtrer les etudiants par nom: </option>
-                        <option value="">Filtrer les etudiants par email: </option>
-                        <option value="">Filtrer les etudiants par sexe: </option>
-                        <option value="">Filtrer les etudiants par annee de naissance: </option>
-                    </select>
+                {{-- Filtrer par nom --}}
+                <input type="text" name="name" placeholder="Nom" value="{{ request('name') }}"
+                    class="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 w-full md:w-64" />
+
+                {{-- Filtrer par email --}}
+                <input type="text" name="email" placeholder="Email" value="{{ request('email') }}"
+                    class="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 w-full md:w-64" />
+
+                {{-- Filtrer par sexe --}}
+                <select name="sexe"
+                    class="border border-gray-300 rounded-md px-3 py-2 bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 shadow-sm transition w-full md:w-auto min-w-[150px]">
+                    <option value="">Filtrer les etudiants par sexe</option>
+                    <option value="Masculin" {{ request('sexe')=='Masculin' ? 'selected' : '' }}>Masculin</option>
+                    <option value="Feminin" {{ request('sexe')=='Feminin' ? 'selected' : '' }}>Feminin</option>
+                </select>
+
+                {{-- Filtrer par année de naissance --}}
+                <input type="text" name="annee_naissance" placeholder="Année de naissance (ex: 2002)"
+                    value="{{ request('annee_naissance') }}"
+                    class="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 w-full md:w-64" />
+
+                {{-- Bouton recherche --}}
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition">
+                    Recherche
+                </button>
+
+                {{-- Bouton réinitialiser --}}
+                <a href="{{ route('student.index') }}"
+                    class="bg-gray-200 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300 transition ml-2">
+                    Réinitialiser
+                </a>
+                <div class="bg-[#22c55e] text-white px-4 py-2 rounded-md hover:bg-green-600 transition">
+                    @if($filtre === 'nom')
+                    Total pour ce nom : {{$students->total()}}
+                    @elseif($filtre === 'sexe')
+                    Total pour ce sexe : {{$students->total()}}
+                    @elseif($filtre === 'email')
+                    Total pour cet email : {{$students->total()}}
+                    @elseif($filtre === 'annee_naissance')
+                    Total pour cette année : {{$students->total()}}
+                    @else
+                    Total étudiants : {{$totalEtudiants}}
+                    @endif
                 </div>
-                <div class="">
-
-                    <input class="" type="text" name="institution" placeholder="Rechercher le titre de l'institution..."
-                        value="">
-                    <button class="">Recherche</button>
-                    <a href="">
-                        <button class="">Réinitialiser</button>
-                    </a>
-                </div>
-
             </div>
         </form>
-        <div class="">
-            <a href="">Add student</a>
-        </div>
 
+        <div class="mb-4">
+            <a href="{{ route('student.create') }}"
+                class="bg-[#22c55e] text-white px-4 py-2 rounded-md hover:bg-green-600 transition">Ajouter un
+                étudiant</a>
+        </div>
 
         <table class="min-w-full bg-white dark:bg-gray-800">
             <thead>
@@ -92,7 +119,8 @@
                         <form method="post" action="{{ route('student.delete', $student->id) }}">
                             @csrf
                             @method('DELETE')
-                            <button class="text-red-400 hover:underline bg-red-500"
+                            <button
+                                class="bg-red-500 text-white px-4 py-2 rounded-md shadow hover:bg-red-600 transition"
                                 onclick="confirm ('Are you sure to delete this student?')">Supprimer</button>
 
 

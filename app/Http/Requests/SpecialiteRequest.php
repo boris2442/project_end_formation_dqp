@@ -11,7 +11,7 @@ class SpecialiteRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,6 +23,17 @@ class SpecialiteRequest extends FormRequest
     {
         return [
             //
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+        ];
+    }
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'Le nom de la spécialité est requis.',
+            'name.string' => 'Le nom de la spécialité doit être une chaîne de caractères.',
+            'name.max' => 'Le nom de la spécialité ne peut pas dépasser 255 caractères.',
+            'description.string' => 'La description doit être une chaîne de caractères.',
         ];
     }
 }
