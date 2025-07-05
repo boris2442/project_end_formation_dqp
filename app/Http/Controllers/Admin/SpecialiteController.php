@@ -5,15 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class StudentController extends Controller
+class SpecialiteController extends Controller
 {
     //
-
     public function index()
     {
-        return view('pages.add-student');
-    }
-    public function index2(){
-        return view('pages.dashboard3');
+        return view('pages.add-specialite');
     }
 }

@@ -3,6 +3,11 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\StudentController;
+use App\Http\Controllers\Admin\FiliereController;
+use App\Http\Controllers\Admin\NiveauController;
+use App\Http\Controllers\Admin\FraisController;
+use App\Http\Controllers\Admin\SpecialiteController;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -19,7 +24,12 @@ Route::middleware('auth')->group(function () {
 
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/admin/student', [StudentController::class, 'index'])->name('student.index');
+    Route::get('/admin/student/add', [StudentController::class, 'index'])->name('student.create');
     // Add other admin routes here
+    Route::get('/admin/add-filiere', [FiliereController::class, 'index'])->name('student.create');
+    Route::get('/admin/add-niveau', [NiveauController::class, 'index'])->name('niveau.create');
+    Route::get('/admin/add-frais',[FraisController::class, 'index'])->name('frais.create');
+    Route::get('/admin/add-specialite', [SpecialiteController::class, 'index'])->name('specialite.create');
+    Route::get('/admin/dashboard2',[StudentController::class, 'index2']);
 });
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
