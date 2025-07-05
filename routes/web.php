@@ -45,5 +45,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/admin/specialites/{id}', [SpecialiteController::class, 'show'])->name('specialite.show');
     Route::get('/admin/dashboard2', [StudentController::class, 'index2']);
+
+    Route::get('/admin/add-frais', [FraisController::class, 'create'])->name('frais.create');
+    Route::post('/admin/add-frais', [FraisController::class, 'store'])->name('frais.store');
+    Route::get('/admin/add-frais', [FraisController::class, 'create'])->name('frais.index');
 });
 require __DIR__ . '/auth.php';

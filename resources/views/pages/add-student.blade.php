@@ -24,34 +24,37 @@
                 </ul>
             </div>
             @endif
-       
+
 
             <!-- Nom et Prénom -->
             {{-- <div class="grid grid-cols-1 md:grid-cols-2 gap-6"> --}}
                 <div>
                     <label for="nom" class="block text-sm font-medium mb-1">Nom de l'etudiant</label>
                     <input type="text" id="nom" name="name" placeholder="Doe" required
-                        class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white" />
-                        @error('name')
-                        <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
-                        @enderror
+                        class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
+                        value="{{old('name')}}" />
+                    @error('name')
+                    <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div>
                     <label for="prenom" class="block text-sm font-medium mb-1">Prénom</label>
                     <input type="text" id="prenom" name="surname" placeholder="John" required
-                        class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white" />
-                        @error('surname')
-                        <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
-                        @enderror
+                        class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
+                        value="{{old('surname')}}" />
+                    @error('surname')
+                    <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div>
                     <label for="email" class="block text-sm font-medium mb-1">email</label>
                     <input type="text" id="email" name="email" placeholder="etudiant@gmail.com" required
-                        class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white" />
-                        @error('email')
-                        <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
-                        @enderror
+                        class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
+                        value="{{old('email')}}" />
+                    @error('email')
+                    <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 {{--
@@ -79,7 +82,8 @@
             <div>
                 <label for="date_naissance" class="block text-sm font-medium mb-1">Date de naissance</label>
                 <input type="date" id="date_naissance" name="date_naissance" required
-                    class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white" />
+                    class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
+                    value="{{old('date_naissance')}}" />
                 @error('date_naissance')
                 <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
                 @enderror
@@ -87,7 +91,8 @@
             <div>
                 <label for="lieu" class="block text-sm font-medium mb-1">Lieu de naissance</label>
                 <input type="text" id="lieu" name="lieu_de_naissance" placeholder="Lieu de naissance" required
-                    class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white" />
+                    class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
+                    value="{{old('lieu_de_naissance')}}" />
                 @error('lieu')
                 <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
                 @enderror
@@ -95,7 +100,8 @@
             <div>
                 <label for="adresse" class="block text-sm font-medium mb-1">Adresse</label>
                 <input type="text" id="adresse" name="adresse" placeholder="Adresse" required
-                    class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white" />
+                    class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
+                    value="{{old('adresse')}}" />
                 @error('adresse')
                 <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
                 @enderror
@@ -103,7 +109,8 @@
             <div>
                 <label for="telephone" class="block text-sm font-medium mb-1">Telephone</label>
                 <input type="text" id="telephone" name="telephone" placeholder="Telephone" required
-                    class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white" />
+                    class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
+                    value="{{old('telephone')}}" />
                 @error('telephone')
                 <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
                 @enderror
