@@ -32,8 +32,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/admin/student/delete/{id}', [StudentController::class, 'delete'])->name('student.delete');
     // Add other admin routes here
     // Route::get('/admin/add-filiere', [FiliereController::class, 'index'])->name('student.create');
-    Route::get('/admin/add-niveau', [NiveauController::class, 'index'])->name('niveau.create');
-    Route::get('/admin/add-frais', [FraisController::class, 'index'])->name('frais.create');
+    Route::get('/admin/add-niveau', [NiveauController::class, 'create'])->name('niveau.create');
+    Route::post('/admin/add-niveau', [NiveauController::class, 'store'])->name('niveau.store');
+    Route::get('/admin/niveau', [NiveauController::class, 'index'])->name('niveau.index');
+    Route::delete('/admin/niveau/{id}', [NiveauController::class, 'delete'])->name('niveau.delete');
+    Route::get('/admin/niveau/{id}', [NiveauController::class, 'edit'])->name('niveau.edit');
+    Route::put('/admin/niveau/{id}', [NiveauController::class, 'update'])->name('niveau.update');
+
+
 
     //Route destinee au specialite
     Route::get('/admin/specialite', [SpecialiteController::class, 'index'])->name('specialite.index');
@@ -48,6 +54,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/admin/add-frais', [FraisController::class, 'create'])->name('frais.create');
     Route::post('/admin/add-frais', [FraisController::class, 'store'])->name('frais.store');
-    Route::get('/admin/add-frais', [FraisController::class, 'create'])->name('frais.index');
+    Route::get('/admin/frais', [FraisController::class, 'index'])->name('frais.index');
+    Route::get('/admin/update-frais/{id}', [FraisController::class, 'edit'])->name('frais.edit');
+    Route::put('/admin/update-frais/{id}', [FraisController::class, 'update'])->name('frais.update');
+    Route::delete('/admin/frais/delete/{id}', [FraisController::class, 'delete'])->name('frais.delete');
 });
 require __DIR__ . '/auth.php';

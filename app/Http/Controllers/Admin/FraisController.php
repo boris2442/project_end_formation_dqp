@@ -12,7 +12,8 @@ class FraisController extends Controller
     //
     public function index()
     {
-        return view('pages.add-frais');
+        $frais = Frai::paginate(5);
+        return view('pages.list-frais', compact('frais'));
     }
     public function create()
     {
@@ -24,5 +25,28 @@ class FraisController extends Controller
         $data['total'] = $data['tranche1'] + $data['tranche2'] + $data['tranche3'];
         Frai::create($data);
         return redirect()->route('frais.index')->with('Frais add with successfull');
+    }
+
+    public function delete($id)
+    {
+        $frais = \App\Models\Frai::findOrFail($id);
+        $frais->delete();
+
+        return redirect()->route('frais.index')->with('success', 'Frais supprimé avec succès.');
+    }
+    public function edit($id)
+    {
+        $frais = \App\Models\Frai::findOrFail($id);
+        return view('pages.update-frais', compact('frais'));
+    }
+
+    public function update(FraisRequest $request, $id)
+    {
+        $frais = Frai::findOrFail($id);
+        $data = $request->validated();
+        $data['total'] = $data['tranche1'] + $data['tranche2'] + $data['tranche3'];
+        $frais->update($data);
+
+        return redirect()->route('frais.index')->with('success', 'Frais modifié avec succès.');
     }
 }

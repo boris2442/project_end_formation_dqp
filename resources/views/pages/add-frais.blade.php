@@ -1,5 +1,5 @@
 @extends('layouts.admin.layout-admin')
-@section('title', 'Ajouter une filiere')
+@section('title', 'Ajouter les frais')
 @section('content')
 
 <section
