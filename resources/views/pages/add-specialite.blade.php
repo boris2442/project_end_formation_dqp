@@ -4,10 +4,15 @@
 @section('content')
 <section
     class="bg-gray-50 dark:bg-gray-900 text-blue-500 dark:text-gray-200 min-h-screen flex items-center justify-center p-4">
-    <div class="w-full max-w-2xl bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 md:p-8">
+
+   
+    <div class="w-full max-w-2xl bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 md:p-8 relative">
+        <a href="{{ route('specialite.index') }}"
+            class="absolute right-0 top-0 bg-[#22c55e] text-white px-4 py-2 rounded-md hover:bg-green-600 transition">Retour</a>
         <h2 class="text-2xl font-bold mb-6 text-center">Ajouter une spécialité</h2>
 
-        <form  action="{{ route('specialite.store') }}"  method="POST" class="space-y-6">
+        <form action="{{ route('specialite.store') }}" method="POST" class="space-y-6 ">
+
             @csrf
 
             <!-- Message succès -->

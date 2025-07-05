@@ -23,9 +23,13 @@ class SpecialiteController extends Controller
 
         return redirect()->route('specialite.index')->with('success', 'Spécialité ajoutée avec succès.');
     }
-    public function index()
+    public function index(Request $request)
     {
-        $specialites = Specialite::paginate(5);
+        $query = Specialite::query();
+        if ($request->filled('name')) {
+            $query->where('name', 'like', '%' . $request->input('name') . '%');
+        }
+        $specialites = $query->paginate(9);
         return view('pages.list-specialite', compact('specialites'));
     }
     public function edit($id)
@@ -47,8 +51,8 @@ class SpecialiteController extends Controller
         return redirect()->route('specialite.index')->with('success', 'Spécialité supprimée avec succès.');
     }
     public function show($id)
-{
-    $specialite = Specialite::findOrFail($id);
-    return view('pages.show-specialite', compact('specialite'));
-}
+    {
+        $specialite = Specialite::findOrFail($id);
+        return view('pages.show-specialite', compact('specialite'));
+    }
 }

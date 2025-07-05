@@ -8,16 +8,12 @@
 
         <form method="get" class="mb-6 flex justify-between items-center" action="{{ route('specialite.index') }}">
 
-            <div class="flex flex-col md:flex-row items-center gap-4 my-4">
+            <div class="flex flex-wrap items-center gap-4 my-4">
 
                 {{-- Filtrer par nom --}}
                 <input type="text" name="name" placeholder="Rechercher une specialite par nom..."
                     value="{{ request('name') }}"
                     class="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 w-full md:w-64" />
-
-
-
-
                 {{-- Bouton recherche --}}
                 <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition">
                     Recherche
@@ -30,8 +26,8 @@
                 </a>
                 <div class="bg-[#22c55e] text-white px-4 py-2 rounded-md hover:bg-green-600 transition">
 
-                    Total étudiants :
-                    {{-- {{$totalEtudiants}} --}}
+                    Total Specialités :
+                    {{$specialites->count()}}
 
                 </div>
             </div>
@@ -49,48 +45,7 @@
         </div>
         @endif
 
-        {{-- <table class="min-w-full bg-white dark:bg-gray-800 rounded-lg shadow-md">
-            <thead>
-                <tr>
-                    <th
-                        class="px-6 py-3 border-b border-gray-200 dark:border-gray-700 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Id</th>
-                    <th
-                        class="px-6 py-3 border-b border-gray-200 dark:border-gray-700 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Nom</th>
-                    <th
-                        class="px-6 py-3 border-b border-gray-200 dark:border-gray-700 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Description</th>
-                    <th class="px-6 py-3 border-b border-gray-200 dark:border-gray-700"></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($specialites as $specialite)
-                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <td class="px-6 py-4 border-b border-gray-200 dark:border-gray-700">{{ $specialite->id }}</td>
-                    <td class="px-6 py-4 border-b border-gray-200 dark:border-gray-700">{{ $specialite->name }}</td>
-                    <td class="px-6 py-4 border-b border-gray-200 dark:border-gray-700">{{ $specialite->description }}
-                    </td>
-                    <td class="px-6 py-4 border-b border-gray-200 dark:border-gray-700 flex space-x-2">
-                        <a href="{{ route('specialite.edit', $specialite->id) }}"
-                            class="text-blue-600 hover:text-blue-900">Modifier</a>
-                        <form method="post" action="{{ route('specialite.delete', $specialite->id) }}">
-                            @csrf
-                            @method('DELETE')
-                            <button
-                                class="bg-red-500 text-white px-4 py-2 rounded-md shadow hover:bg-red-600 transition"
-                                onclick="confirm ('Are you sure to delete this speciality?')">Supprimer</button>
 
-
-                        </form>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-        <div class="mt-4">
-            {{ $specialites->links() }}
-        </div> --}}
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach ($specialites as $specialite)

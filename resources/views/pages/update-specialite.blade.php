@@ -7,7 +7,7 @@
     <div class="w-full max-w-2xl bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 md:p-8">
         <h2 class="text-2xl font-bold mb-6 text-center">Editer une spécialité</h2>
 
-        <form action="{{ route('specialite.update') }}" method="POST" class="space-y-6">
+        <form action="{{ route('specialite.update', $specialite->id) }}" method="POST" class="space-y-6">
             @csrf
             @method('PUT')
 
