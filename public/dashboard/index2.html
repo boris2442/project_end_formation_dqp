@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard Sidebar</title>
+  <script src="https://cdn.tailwindcss.com "></script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 min-h-screen flex">
+
+  <!-- Sidebar -->
+  <aside id="sidebar" class="w-64 bg-white dark:bg-gray-800 shadow-lg h-screen overflow-y-auto transition-transform duration-300 ease-in-out fixed top-0 left-0 z-40 transform -translate-x-full md:translate-x-0">
+    <div class="flex items-center justify-center p-4">
+      <img src="https://via.placeholder.com/100x30?text=Logo" alt="Logo" class="h-8 w-auto">
+    </div>
+
+    <!-- Menu -->
+    <nav class="px-2 py-4 space-y-2">
+      <!-- Accueil -->
+      <a href="#"
+        class="flex items-center px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md transition duration-300"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M10 2a1 1 0 011 1v1h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V3a1 1 0 011-1z" />
+        </svg>
+        Accueil
+      </a>
+
+      <!-- Gestion des utilisateurs -->
+      <details open class="group">
+        <summary 
+          class="flex items-center px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md transition duration-300 cursor-pointer"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M10 2a1 1 0 011 1v1h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V3a1 1 0 011-1z" />
+          </svg>
+          Gestion des utilisateurs
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-auto transition-transform duration-300 group-open:-rotate-90" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </summary>
+        <ul class="pl-4">
+          <li>
+            <a href="#" 
+              class="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md transition duration-300"
+            >
+              Ajouter utilisateur
+            </a>
+          </li>
+          <li>
+            <a href="#" 
+              class="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md transition duration-300"
+            >
+              Liste des utilisateurs
+            </a>
+          </li>
+        </ul>
+      </details>
+
+      <!-- Ressources -->
+      <details>
+        <summary 
+          class="flex items-center px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md transition duration-300 cursor-pointer"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M10 2a1 1 0 011 1v1h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V3a1 1 0 011-1z" />
+          </svg>
+          Ressources
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-auto transition-transform duration-300 group-open:-rotate-90" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </summary>
+        <ul class="pl-4">
+          <li>
+            <a href="#" 
+              class="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md transition duration-300"
+            >
+              Matériel
+            </a>
+          </li>
+          <li>
+            <a href="#" 
+              class="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md transition duration-300"
+            >
+              Logiciels
+            </a>
+          </li>
+        </ul>
+      </details>
+
+      <!-- Rapports -->
+      <a href="#"
+        class="flex items-center px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md transition duration-300"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M10 2a1 1 0 011 1v1h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V3a1 1 0 011-1z" />
+        </svg>
+        Rapports
+      </a>
+
+      <!-- Paramètres -->
+      <details>
+        <summary 
+          class="flex items-center px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md transition duration-300 cursor-pointer"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M10 2a1 1 0 011 1v1h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V3a1 1 0 011-1z" />
+          </svg>
+          Paramètres
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-auto transition-transform duration-300 group-open:-rotate-90" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </summary>
+        <ul class="pl-4">
+          <li>
+            <a href="#" 
+              class="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md transition duration-300"
+            >
+              Profil
+            </a>
+          </li>
+          <li>
+            <a href="#" 
+              class="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md transition duration-300"
+            >
+              Réglages généraux
+            </a>
+          </li>
+        </ul>
+      </details>
+
+      <!-- Déconnexion -->
+      <a href="#"
+        class="flex items-center px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md transition duration-300"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M10 2a1 1 0 011 1v1h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V3a1 1 0 011-1z" />
+        </svg>
+        Déconnexion
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-grow p-4">
+    <h1 class="text-2xl font-bold mb-4">Contenu principal du dashboard</h1>
+    <p>Bienvenue dans votre dashboard !</p>
+  </main>
+</body>
+</html>
