@@ -10,7 +10,7 @@
             <!-- Nom et Prénom -->
             {{-- <div class="grid grid-cols-1 md:grid-cols-2 gap-6"> --}}
                 <div>
-                    <label for="nom" class="block text-sm font-medium mb-1">Nom</label>
+                    <label for="nom" class="block text-sm font-medium mb-1">Nom de l'etudiant</label>
                     <input type="text" id="nom" name="name" placeholder="Doe" required
                         class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white" />
                 </div>
@@ -54,8 +54,18 @@
                     class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white" />
             </div>
             <div>
-                <label for="lieu" class="block text-sm font-medium mb-1">lieu</label>
+                <label for="lieu" class="block text-sm font-medium mb-1">Lieu de naissance</label>
                 <input type="text" id="lieu" name="lieu" placeholder="Lieu de naissance" required
+                    class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white" />
+            </div>
+            <div>
+                <label for="adresse" class="block text-sm font-medium mb-1">Adresse</label>
+                <input type="text" id="adresse" name="adresse" placeholder="Adresse" required
+                    class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white" />
+            </div>
+            <div>
+                <label for="telephone" class="block text-sm font-medium mb-1">Telephone</label>
+                <input type="text" id="telephone" name="telephone" placeholder="Telephone" required
                     class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white" />
             </div>
 
