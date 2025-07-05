@@ -11,7 +11,7 @@ use App\Http\Controllers\Admin\SpecialiteController;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('/dash', [StudentController::class, 'dashboard']);
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

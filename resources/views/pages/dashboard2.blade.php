@@ -1,31 +1,19 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-    />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>
-      eCommerce Dashboard | TailAdmin - Tailwind CSS Admin Dashboard Template
-    </title>
-  </head>
-  <body
-    x-data="{ page: 'ecommerce', 'loaded': true, 'darkMode': false, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
-    x-init="
-         darkMode = JSON.parse(localStorage.getItem('darkMode'));
-         $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
-    :class="{'dark bg-gray-900': darkMode === true}"
-  >
+@extends('layouts.admin.layout-admin')
+@section('title', 'Liste des Étudiants')
+@section('content')
     <!-- ===== Preloader Start ===== -->
-    <include src="{{asset('dashboard/partials/preloader.html')}}"></include>
+    <?php 
+    include('dashboard/partials/preloader.html')
+    ?>
     <!-- ===== Preloader End ===== -->
 
     <!-- ===== Page Wrapper Start ===== -->
     <div class="flex h-screen overflow-hidden">
       <!-- ===== Sidebar Start ===== -->
-      <include src="{{ asset('dashboard/partials/sidebar.html') }}"></include>
+      <?php
+      include("dashboard/partials/sidebar.html")
+        
+      ?>
       <!-- ===== Sidebar End ===== -->
 
       <!-- ===== Content Area Start ===== -->
@@ -33,12 +21,15 @@
         class="relative flex flex-col flex-1 overflow-x-hidden overflow-y-auto"
       >
         <!-- Small Device Overlay Start -->
-        <include src="{{ asset('dashboard/partials/overlay.html') }}" />
+        <?php 
+        include('dashboard/partials/overlay.html')
+        ?>
         <!-- Small Device Overlay End -->
 
         <!-- ===== Header Start ===== -->
-        <include src="{{asset('dashboard/partials/header.html')}}" />
-        <!-- ===== Header End ===== -->
+        <?php 
+        include('dashboard/partials/header.html')       
+          ?>
 
         <!-- ===== Main Content Start ===== -->
         <main>
@@ -46,34 +37,46 @@
             <div class="grid grid-cols-12 gap-4 md:gap-6">
               <div class="col-span-12 space-y-6 xl:col-span-7">
                 <!-- Metric Group One -->
-                <include src="{{asset('dashboard/partials/metric-group/metric-group-01.html')}}" />
+                <?php 
+                include('dashboard/partials/metric-group/metric-group-01.html')
+                ?>
                 <!-- Metric Group One -->
 
                 <!-- ====== Chart One Start -->
-                <include src="{{asset('dashboard/partials/chart/chart-01.html')}}" />
+                <?php 
+                include('dashboard/partials/chart/chart-01.html')
+                ?>
                 <!-- ====== Chart One End -->
               </div>
               <div class="col-span-12 xl:col-span-5">
                 <!-- ====== Chart Two Start -->
-                <include src="{{asset('dashboard/partials/chart/chart-02.html')}}" />
+                <?php 
+                include('dashboard/partials/chart/chart-02.html')
+                ?>
                 <!-- ====== Chart Two End -->
               </div>
 
               <div class="col-span-12">
                 <!-- ====== Chart Three Start -->
-                <include src="{{asset('dashboard/partials/chart/chart-03.html')}}" />
+                <?php 
+                include('dashboard/partials/chart/chart-03.html')
+                ?>
                 <!-- ====== Chart Three End -->
               </div>
 
               <div class="col-span-12 xl:col-span-5">
                 <!-- ====== Map One Start -->
-                <include src="{{asset('dashboard/partials/map-01.html')}}" />
+                <?php 
+                include('dashboard/partials/map-01.html')
+                ?>
                 <!-- ====== Map One End -->
               </div>
 
               <div class="col-span-12 xl:col-span-7">
                 <!-- ====== Table One Start -->
-                <include src="{{asset('dashboard/partials/table/table-01.html')}}" />
+                <?php 
+                include('dashboard/partials/table/table-01.html')
+                ?>
                 <!-- ====== Table One End -->
               </div>
             </div>
@@ -84,5 +87,4 @@
       <!-- ===== Content Area End ===== -->
     </div>
     <!-- ===== Page Wrapper End ===== -->
-  </body>
-</html>
+  @endsection

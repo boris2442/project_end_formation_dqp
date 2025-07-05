@@ -86,4 +86,8 @@ class StudentController extends Controller
         $student->delete();
         return redirect()->route('student.index')->with('success', 'Student delete with successfull');
     }
+    public function dashboard(){
+        
+        return view('pages.dashboard2');
+    }
 }
