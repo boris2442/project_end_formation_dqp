@@ -25,15 +25,35 @@ class StudentController extends Controller
     {
         // Validate and store the student data
         $data = $request->validated();
-        if($request->hasFile('photo')){
+        if ($request->hasFile('photo')) {
             $file = $request->file('photo');
             $filename = time() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('images/students'), $filename);
-            $data['photo'] = 'images/students/' . $filename;
+            $data['photo'] = $filename;
         } else {
             $data['photo'] = null; // or set a default image path
         }
         Student::create($data);
         return redirect()->route('student.create')->with('success', 'Student added successfully!');
+    }
+    public function edit($id)
+    {
+        $student = Student::findOrFail($id);
+        return view('pages.update-student', compact('student'));
+    }
+    public function update(StudentRequest $request, $id)
+    {
+        $student = Student::findOrFail($id);
+        $data = $request->validated();
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('images/students'), $filename);
+            $data['photo'] =  $filename;
+        } else {
+            $data['photo'] = $student->photo; // Keep the old photo if no new photo is uploaded
+        }
+        $student->update($data);
+        return redirect()->route('student.index')->with('success', 'Student updated successfully!');
     }
 }

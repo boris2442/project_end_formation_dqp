@@ -27,6 +27,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/admin/students', [StudentController::class, 'index'])->name('student.index');
     Route::get('/admin/student/create', [StudentController::class, 'create'])->name('student.create');
     Route::post('/admin/student/store', [StudentController::class, 'store'])->name('student.store');
+    Route::get('/admin/student/edit/{id}', [StudentController::class, 'edit'])->name('student.edit');
+    Route::put('/admin/student/update/{id}', [StudentController::class, 'update'])->name('student.update');
+    Route::get('/admin/student/delete/{id}', [StudentController::class, 'destroy'])->name('student.delete');
     // Add other admin routes here
     Route::get('/admin/add-filiere', [FiliereController::class, 'index'])->name('student.create');
     Route::get('/admin/add-niveau', [NiveauController::class, 'index'])->name('niveau.create');
