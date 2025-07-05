@@ -14,7 +14,7 @@ class StudentController extends Controller
     public function index()
     {
         return view('pages.list-students', [
-            'students' => Student::all(),
+            'students' => Student::paginate(4),
         ]);
     }
     public function create()
@@ -55,5 +55,11 @@ class StudentController extends Controller
         }
         $student->update($data);
         return redirect()->route('student.index')->with('success', 'Student updated successfully!');
+    }
+    public function delete($id)
+    {
+        $student = Student::findOrFail($id);
+        $student->delete();
+        return redirect()->route('student.index')->with('success', 'Student delete with successfull');
     }
 }
