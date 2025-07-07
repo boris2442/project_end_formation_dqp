@@ -58,5 +58,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/admin/update-frais/{id}', [FraisController::class, 'edit'])->name('frais.edit');
     Route::put('/admin/update-frais/{id}', [FraisController::class, 'update'])->name('frais.update');
     Route::delete('/admin/frais/delete/{id}', [FraisController::class, 'delete'])->name('frais.delete');
+
+    //Route destinee au filiere
+    Route::get('/admin/add-filiere', [FiliereController::class, 'create'])->name('filiere.create');
 });
 require __DIR__ . '/auth.php';

@@ -8,4 +8,7 @@ class Niveau extends Model
 {
     //
     protected $guarded=[];
+    public function students(){
+        return $this->hasMany(Student::class);
+    }
 }
