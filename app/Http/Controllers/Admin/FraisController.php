@@ -29,14 +29,14 @@ class FraisController extends Controller
 
     public function delete($id)
     {
-        $frais = \App\Models\Frai::findOrFail($id);
+        $frais = Frai::findOrFail($id);
         $frais->delete();
 
         return redirect()->route('frais.index')->with('success', 'Frais supprimé avec succès.');
     }
     public function edit($id)
     {
-        $frais = \App\Models\Frai::findOrFail($id);
+        $frais = Frai::findOrFail($id);
         return view('pages.update-frais', compact('frais'));
     }
 
